@@ -9,6 +9,12 @@ if (!function_exists('optionsframework_init')){
 }
 
 /**
+ * 去除登录后顶部状态栏
+ */
+add_filter( 'show_admin_bar', '__return_false' );
+
+
+/**
  * 引入ajax评论
  */
 require get_template_directory() . '/ajax-comment/do.php';
@@ -85,9 +91,6 @@ function load_resourse(){
 add_action('wp_enqueue_scripts', 'load_resourse' );
 
 
-
-
-
 /**
  * 注册菜单
  * @return [type] [description]
@@ -95,8 +98,8 @@ add_action('wp_enqueue_scripts', 'load_resourse' );
 function register_my_menu(){
 	register_nav_menus(
 		array(
-			'primary' => __( 'Top Navigation' , 'Top Menu'),
-			'second'  => __( 'Index Navigation' , 'Index Menu')
+			'primary' => __( 'Index Navigation' , 'Index Menu'),
+			'second'  => __( 'Category Navigation' , 'Category Menu')
 			)
 	);
 }
@@ -263,10 +266,6 @@ function Widgetinit() {
 add_action('widgets_init','Widgetinit');
  
 
-/**
- * 缓存头像
- */
-
 
 
 /**
@@ -354,14 +353,6 @@ function custome_comments( $comment, $args ,$depth ) {
 	</li>
 	<?php
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -721,11 +712,6 @@ function print_image_function(){
     return $result;
 }
 add_shortcode('print-image','print_image_function');
-
-
-
-
-
 
 
 

@@ -1,0 +1,51 @@
+@charset "UTF-8";
+//section.container
+
+/**
+ * 清除浮动
+ */
+.clearfix:before,
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+.clearfix:after {clear: both;}
+.clearfix {zoom: 1;}
+
+
+
+.fill-top {
+  margin-top: 105px;
+  overflow: hidden;
+}
+.to-show {
+  margin-bottom: 24px;
+  .header {
+    font-size: 14px;
+    display: block;
+    color: rgba(0, 0, 0, 0.74);
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  }
+  .show-list:nth-child(3) {
+    margin:26px 30px;
+  }
+}
+.show-list{
+  float: left;
+  width: 31.333333333%;
+  margin: 26px 0;
+  a {
+    display: inline-block;
+    width: 314px;
+    height: 176px;
+    background: url("images/demo.jpg") no-repeat;
+    background-size: 100%;
+  }
+}
+.block-snippet {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.63);
+}
