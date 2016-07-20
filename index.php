@@ -1,6 +1,4 @@
 <?php get_header(); ?>
-
-
     <section class="container fill-top">
         <?php get_template_part( 'template-parts/content', 'time' ); ?>
         <div class="main container">
@@ -25,9 +23,9 @@
                                     <?php the_excerpt();?>
                                 </div>
                                 <div class="block-post-meta">
-                                    <time  datetime="2016-07-12T22:18:51+08:00"><?php the_time('Y-m-d' ); ?></time>
+                                    <time  datetime="2016-07-12T22:18:51+08:00"><?php echo date('M',get_the_time('U')); the_date(' jS Y'); ?></time>
                                     <span class="middle-dot"></span>
-                                    7.75k reads
+                                    <?php if(function_exists('the_views')){ the_views();} ?> reads
                                 </div>
                             </article>
                             <?php
