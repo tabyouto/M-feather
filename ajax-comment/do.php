@@ -69,9 +69,11 @@ function ajax_comment_callback(){
     $comment_type = '';
     if ( get_option('require_name_email') && !$user->exists() ) {
         if ( 6 > strlen($comment_author_email) || '' == $comment_author )
-            ajax_comment_err( 'Error: please fill the required fields (name, email).' );
+            ajax_comment_err( '请输入有效的昵称和邮箱' );
+//        Error: please fill the required fields (name, email).
         elseif ( !is_email($comment_author_email))
-            ajax_comment_err( 'Error: please enter a valid email address.' );
+            ajax_comment_err('请输入有效的邮箱地址' );
+//        Error: please enter a valid email address.
     }
     if ( '' == $comment_content )
         ajax_comment_err( 'Error: please type a comment.' );
@@ -109,18 +111,18 @@ function ajax_comment_callback(){
    <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
         <div id="comment-<?php comment_ID(); ?>">
             <div class="comment-author vcard">
-                <?php echo get_avatar($comment,$size='50'); ?>
+                <?php echo get_avatar($comment,$size='20'); ?>
                 <cite class="fn">
                     <?php printf(__('%s'),get_comment_author_link()); ?>
                     <?php if($comment->comment_approved=='0') : ?>
                         <em><?php _e('等待审核！' ); ?></em>
                     <?php endif; ?>
                 </cite>
+                <time class="comment-time"><?php printf(__('%1$s at %2$s'), get_comment_date(),get_comment_time()); ?></time>
             </div>
-           
+
             <div class="comment-meta comment-meta-data">
                 <?php comment_reply_link(array_merge($args,array('depth'=>$depth,'max_depth'=>$args['max_depth'])) ); ?>
-                    <time class="comment-time"><?php printf(__('%1$s at %2$s'), get_comment_date(),get_comment_time()); ?></time>
                 <?php edit_comment_link(__('(编辑)'),'','' ); ?>
             </div>
             <div class="comment-content">

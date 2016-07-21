@@ -13,6 +13,16 @@ if (!function_exists('optionsframework_init')){
  */
 add_filter( 'show_admin_bar', '__return_false' );
 
+/**
+ * 改造img标签 懒加载
+ */
+add_filter ('the_content', 'lazyload');
+function lazyload($content) {
+    if(!is_feed()||!is_robots) {
+        $content=preg_replace('/<img(.+)src=[\'"]([^\'"]+)[\'"](.*)>/i',"<img\$1data-original=\"\$2\" src=\"loading1.gif\"\$3>\n<noscript>\$0</noscript>",$content);
+    }
+    return $content;
+}
 
 /**
  * 引入ajax评论
@@ -55,6 +65,37 @@ function no_more_jquery(){
     wp_register_script('jquery', "http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js", false, null);
     wp_enqueue_script('jquery');
 }
+
+
+/**
+ * 获取当前文章的评论数量
+ */
+function comment_count($postid=0,$which=0) {
+    $comments = get_comments('status=approve&type=comment&post_id='.$postid); //获取文章的所有评论
+    if ($comments) {
+        $i=0; $j=0; $commentusers=array();
+        foreach ($comments as $comment) {
+            ++$i;
+            if ($i==1) { $commentusers[] = $comment->comment_author_email; ++$j; }
+            if ( !in_array($comment->comment_author_email, $commentusers) ) {
+                $commentusers[] = $comment->comment_author_email;
+                ++$j;
+            }
+        }
+        $output = array($j,$i);
+        $which = ($which == 0) ? 0 : 1;
+        return $output[$which].' comments'; //返回评论人数
+    }
+    return 'No comment'; //没有评论返回0
+}
+
+
+
+
+
+
+
+
 
 
 /**
@@ -163,11 +204,10 @@ if ( function_exists('add_theme_support') )
 		ob_start();
 		ob_end_clean();
 		$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-		$first_img = $matches [1] [0];
+		$first_img = $matches [1][0];
 		if(empty($first_img)){
-			// $random = mt_rand(1, 6);
-			// echo get_bloginfo ( 'stylesheet_directory' ).'/images/random/'.$random.'.jpg';
-			return "";
+            $random = mt_rand(1, 1);
+            return get_bloginfo ( 'stylesheet_directory' ).'/images/random/'.$random.'.jpg';
 		}
 	  return $first_img;
 	}
@@ -175,25 +215,10 @@ if ( function_exists('add_theme_support') )
 
 
 /**
- * 限制输出字数
- */
-// function string_limit_words($string, $word_limit) {
-//   $words = strlen($string);
-//   print_r( $words );
-//   if($words > $word_limit) {
-// 	  echo mb_substr($string, 0, $word_limit, 'utf-8').'...';
-// 	} else {
-// 	  echo implode(' ', $words); 
-// 	}
-// }
-
-
-
-/**
  * 控制摘要长度
  */
 function new_excerpt_length($length) {
-    return 160;
+    return 55;
 }
 add_filter('excerpt_length', 'new_excerpt_length');
 function new_excerpt_more($more) {
@@ -331,16 +356,16 @@ function custome_comments( $comment, $args ,$depth ) {
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<div id="comment-<?php comment_ID(); ?>" class="comment-body">
 			<div class="comment-author vcard">
-				<?php echo get_avatar($comment,$size='30'); ?>
+				<?php echo get_avatar($comment,$size='20'); ?>
 				<cite class="fn">
 					<?php printf(__('%s'),get_comment_author_link()); ?> <span class="say">说道：</span>
 					<?php if($comment->comment_approved=='0') : ?>
 						<em><?php _e('等待审核！' ); ?></em>
 					<?php endif; ?>
 				</cite>
+                <time class="comment-time"><?php printf(__('%1$s at %2$s'), get_comment_date('Y-m-d'),''); ?></time>
 			</div>
 			<div class="comment-meta comment-meta-data">
-					<time class="comment-time"><?php printf(__('%1$s at %2$s'), get_comment_date('Y-m-d'),get_comment_time('H:i:s')); ?></time>
 				<?php edit_comment_link(__('(编辑)'),'','' ); ?>
 			</div>
 			<!-- <div class="comment-content"> -->

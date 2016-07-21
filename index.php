@@ -1,6 +1,7 @@
 <?php get_header(); ?>
+<?php get_template_part( 'template-parts/content', 'index-menu' ); ?>
     <section class="container fill-top">
-        <?php get_template_part( 'template-parts/content', 'time' ); ?>
+<!--        --><?php //get_template_part( 'template-parts/content', 'time' ); ?>
         <div class="main container">
             <div class="primary-wrap">
                 <div class="layout-primary">
@@ -12,9 +13,13 @@
                                 <?php if(catch_first_image()!==""): ?>
                                     <a
                                         href="<?php the_permalink();  ?>"
-                                        title="<?php the_title(); ?>
-                                        class="article-thumbnails"
-                                        lazy-url="<?php echo catch_first_image() ?>"></a>
+                                        title="<?php the_title(); ?>"
+                                        class="article-thumbnails">
+                                        <img
+                                            data-original="<?php echo catch_first_image() ?>"
+                                            alt="<?php the_title(); ?>"
+                                            style="width: 140px;height: 120px;">
+                                    </a>
                                 <?php endif; ?>
                                 <h2 class="block-title">
                                     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
@@ -23,7 +28,7 @@
                                     <?php the_excerpt();?>
                                 </div>
                                 <div class="block-post-meta">
-                                    <time  datetime="2016-07-12T22:18:51+08:00"><?php echo date('M',get_the_time('U')); the_date(' jS Y'); ?></time>
+                                    <time><?php echo date('M',get_the_time('U')); the_date(' jS Y'); ?></time>
                                     <span class="middle-dot"></span>
                                     <?php if(function_exists('the_views')){ the_views();} ?> reads
                                 </div>
