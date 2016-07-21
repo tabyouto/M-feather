@@ -23,6 +23,7 @@
 		</ul>
 	</div>
 	<div class="navto-search">
-		<a href=""><i class="iconfont">&#xe600;</i></a>
+		<?php get_search_form( ); ?>
+<!--		<a href=""><i class="iconfont">&#xe600;</i></a>-->
 	</div>
 </header>

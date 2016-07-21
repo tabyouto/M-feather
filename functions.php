@@ -302,6 +302,20 @@ function echo_the_Category() {
 	}
 }
 
+
+function search_form( $form ) {
+
+    $form = '<form name="search_at" role="search" method="get" id="searchform" action="'. home_url('/').'" class="Search-form">
+        <div class="Search-inner">
+            <input type="text" value="' . get_search_query() . '" name="s" id="SearchInput" onkeydown= "if(event.keyCode==13)search_at.submit()" />
+            <label type="submit" id="searchsubmit" class="Label" for="SearchInput"></label>
+        </div>
+    </form>';
+    return $form;
+}
+
+add_filter( 'get_search_form', 'search_form' );
+
 /**
  * 增加editor 样式
  */
