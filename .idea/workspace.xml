@@ -2,69 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40ec8e06-b4ce-49df-b69e-433616672e79" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/404.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/ajax-comment/app.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/ajax-comment/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/ajax-comment/do.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/article.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/category-tips.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/comments.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/footer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/functions.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/header.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/images/1col.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/images/2cl.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/images/2cr.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/images/404.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/images/blank.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/images/demo.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/images/footer.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/images/icon-bookmark-fill.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/images/icon-bookmark.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/images/icon-bubble-fill.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/images/icon-bubble.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/images/icon-heart-fill.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/images/icon-heart.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/images/icon-tags.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/images/logo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/images/sina.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/inc/css/color-picker.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/inc/css/optionsframework.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/inc/images/ico-delete.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/inc/js/color-picker.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/inc/js/iris.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/inc/js/media-uploader.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/inc/js/options-custom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/inc/options-framework.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/inc/options-interface.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/inc/options-media-uploader.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/inc/options-sanitize.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/js/jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/js/main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/less/article.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/less/global.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/less/layout-primary.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/less/navigation.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/less/normalize.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/less/section.container.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/less/style.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/navigation.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/options.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/page.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/pages/friends.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/remote-css/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/search.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/searchforml.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/section.container.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/single.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/template-parts/content-about-me.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/template-parts/content-menu.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/theme/template-parts/content-time.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functions.php" afterPath="$PROJECT_DIR$/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/layout-primary.css" afterPath="$PROJECT_DIR$/layout-primary.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/layout-primary.less" afterPath="$PROJECT_DIR$/less/layout-primary.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/search.less" afterPath="$PROJECT_DIR$/less/search.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/search.css" afterPath="$PROJECT_DIR$/search.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/searchform.php" afterPath="$PROJECT_DIR$/searchform.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style.css" afterPath="$PROJECT_DIR$/style.css" />
     </list>
     <ignored path="M-feather.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -85,21 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="404.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/404.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="style.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/less/style.less">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-9">
-              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -108,8 +44,71 @@
       <file leaf-file-name="layout-primary.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/less/layout-primary.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="96" column="22" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
+            <state relative-caret-position="224">
+              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="content-index-menu.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/template-parts/content-index-menu.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="411">
+              <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="searchform.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/searchform.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/search.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-198">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding>
+                <marker date="1469108580666" expanded="true" signature="1469:1495" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/functions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="308" column="34" selection-start-line="308" selection-start-column="34" selection-end-line="308" selection-end-column="34" />
+              <folding>
+                <marker date="1469111032546" expanded="true" signature="19660:19835" ph="..." />
+                <marker date="1469111032546" expanded="true" signature="19836:20834" ph="..." />
+                <marker date="1469111032546" expanded="false" signature="19852:19953" ph="..." />
+                <marker date="1469111032546" expanded="false" signature="19968:20016" ph="..." />
+                <marker date="1469111032546" expanded="false" signature="20079:20098" ph="..." />
+                <marker date="1469111032546" expanded="true" signature="20099:20825" ph="..." />
+                <marker date="1469111032546" expanded="false" signature="20400:20452" ph="..." />
+                <marker date="1469111032546" expanded="false" signature="20535:20548" ph="..." />
+                <marker date="1469111032546" expanded="false" signature="20726:20739" ph="..." />
+                <marker date="1469111032546" expanded="true" signature="23281:23310" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search.less" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/less/search.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="67" column="13" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -125,29 +124,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="24" column="61" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+            <state relative-caret-position="198">
+              <caret line="46" column="43" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
               <folding>
-                <marker date="1469027712215" expanded="true" signature="2052:5484" ph="..." />
-                <marker date="1469027712215" expanded="true" signature="2089:2838" ph="..." />
-                <marker date="1469027712215" expanded="true" signature="2189:2815" ph="..." />
-                <marker date="1469027712215" expanded="true" signature="2875:5465" ph="..." />
-                <marker date="1469027712215" expanded="true" signature="2981:5442" ph="..." />
-                <marker date="1469027712215" expanded="true" signature="3010:3468" ph="..." />
-                <marker date="1469027712215" expanded="true" signature="3217:3438" ph="..." />
-                <marker date="1469027712215" expanded="true" signature="3497:3955" ph="..." />
-                <marker date="1469027712215" expanded="true" signature="3704:3925" ph="..." />
-                <marker date="1469027712215" expanded="true" signature="3984:4442" ph="..." />
-                <marker date="1469027712215" expanded="true" signature="4191:4412" ph="..." />
-                <marker date="1469027712215" expanded="true" signature="4471:4929" ph="..." />
-                <marker date="1469027712215" expanded="true" signature="4678:4899" ph="..." />
-                <marker date="1469027712215" expanded="true" signature="4958:5416" ph="..." />
-                <marker date="1469027712215" expanded="true" signature="5165:5386" ph="..." />
-                <marker date="1469027712215" expanded="true" signature="5542:5596" ph="..." />
-                <marker date="1469027712215" expanded="true" signature="5567:5596" ph="..." />
+                <element signature="e#1144#1179#0#HTML" expanded="true" />
+                <marker date="1469108580656" expanded="true" signature="2338:5770" ph="..." />
+                <marker date="1469108580656" expanded="true" signature="2375:3124" ph="..." />
+                <marker date="1469108580656" expanded="true" signature="2475:3101" ph="..." />
+                <marker date="1469108580656" expanded="true" signature="3161:5751" ph="..." />
+                <marker date="1469108580656" expanded="true" signature="3267:5728" ph="..." />
+                <marker date="1469108580656" expanded="true" signature="3296:3754" ph="..." />
+                <marker date="1469108580656" expanded="true" signature="3503:3724" ph="..." />
+                <marker date="1469108580656" expanded="true" signature="3783:4241" ph="..." />
+                <marker date="1469108580656" expanded="true" signature="3990:4211" ph="..." />
+                <marker date="1469108580656" expanded="true" signature="4270:4728" ph="..." />
+                <marker date="1469108580656" expanded="true" signature="4477:4698" ph="..." />
+                <marker date="1469108580656" expanded="true" signature="4757:5215" ph="..." />
+                <marker date="1469108580656" expanded="true" signature="4964:5185" ph="..." />
+                <marker date="1469108580656" expanded="true" signature="5244:5702" ph="..." />
+                <marker date="1469108580656" expanded="true" signature="5451:5672" ph="..." />
+                <marker date="1469108580656" expanded="true" signature="5828:5882" ph="..." />
+                <marker date="1469108580656" expanded="true" signature="5853:5882" ph="..." />
               </folding>
             </state>
           </provider>
@@ -177,6 +177,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/less/layout-primary.less" />
+        <option value="$PROJECT_DIR$/searchform.php" />
+        <option value="$PROJECT_DIR$/functions.php" />
+        <option value="$PROJECT_DIR$/less/search.less" />
       </list>
     </option>
   </component>
@@ -249,6 +253,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="template-parts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="M-feather" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="M-feather" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="less" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -262,8 +280,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="settings.editor.selected.configurable" value="lessc" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -368,12 +387,12 @@
       <updated>1469023484396</updated>
       <workItem from="1469023488077" duration="317000" />
       <workItem from="1469023839600" duration="180000" />
-      <workItem from="1469024064147" duration="2929000" />
+      <workItem from="1469024064147" duration="6350000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3426000" />
+    <option name="totallyTimeSpent" value="6847000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1382" height="744" extended-state="6" />
@@ -383,12 +402,13 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1505295" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12438625" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45171848" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -396,7 +416,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -479,15 +498,7 @@
     <entry file="file://$PROJECT_DIR$/less/style.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-9">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/less/layout-primary.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="96" column="22" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -502,29 +513,106 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" column="61" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+        <state relative-caret-position="198">
+          <caret line="46" column="43" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
           <folding>
-            <marker date="1469027712215" expanded="true" signature="2052:5484" ph="..." />
-            <marker date="1469027712215" expanded="true" signature="2089:2838" ph="..." />
-            <marker date="1469027712215" expanded="true" signature="2189:2815" ph="..." />
-            <marker date="1469027712215" expanded="true" signature="2875:5465" ph="..." />
-            <marker date="1469027712215" expanded="true" signature="2981:5442" ph="..." />
-            <marker date="1469027712215" expanded="true" signature="3010:3468" ph="..." />
-            <marker date="1469027712215" expanded="true" signature="3217:3438" ph="..." />
-            <marker date="1469027712215" expanded="true" signature="3497:3955" ph="..." />
-            <marker date="1469027712215" expanded="true" signature="3704:3925" ph="..." />
-            <marker date="1469027712215" expanded="true" signature="3984:4442" ph="..." />
-            <marker date="1469027712215" expanded="true" signature="4191:4412" ph="..." />
-            <marker date="1469027712215" expanded="true" signature="4471:4929" ph="..." />
-            <marker date="1469027712215" expanded="true" signature="4678:4899" ph="..." />
-            <marker date="1469027712215" expanded="true" signature="4958:5416" ph="..." />
-            <marker date="1469027712215" expanded="true" signature="5165:5386" ph="..." />
-            <marker date="1469027712215" expanded="true" signature="5542:5596" ph="..." />
-            <marker date="1469027712215" expanded="true" signature="5567:5596" ph="..." />
+            <element signature="e#1144#1179#0#HTML" expanded="true" />
+            <marker date="1469108580656" expanded="true" signature="2338:5770" ph="..." />
+            <marker date="1469108580656" expanded="true" signature="2375:3124" ph="..." />
+            <marker date="1469108580656" expanded="true" signature="2475:3101" ph="..." />
+            <marker date="1469108580656" expanded="true" signature="3161:5751" ph="..." />
+            <marker date="1469108580656" expanded="true" signature="3267:5728" ph="..." />
+            <marker date="1469108580656" expanded="true" signature="3296:3754" ph="..." />
+            <marker date="1469108580656" expanded="true" signature="3503:3724" ph="..." />
+            <marker date="1469108580656" expanded="true" signature="3783:4241" ph="..." />
+            <marker date="1469108580656" expanded="true" signature="3990:4211" ph="..." />
+            <marker date="1469108580656" expanded="true" signature="4270:4728" ph="..." />
+            <marker date="1469108580656" expanded="true" signature="4477:4698" ph="..." />
+            <marker date="1469108580656" expanded="true" signature="4757:5215" ph="..." />
+            <marker date="1469108580656" expanded="true" signature="4964:5185" ph="..." />
+            <marker date="1469108580656" expanded="true" signature="5244:5702" ph="..." />
+            <marker date="1469108580656" expanded="true" signature="5451:5672" ph="..." />
+            <marker date="1469108580656" expanded="true" signature="5828:5882" ph="..." />
+            <marker date="1469108580656" expanded="true" signature="5853:5882" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/less/layout-primary.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template-parts/content-index-menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/searchform.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <marker date="1469108580666" expanded="true" signature="1469:1495" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="308" column="34" selection-start-line="308" selection-start-column="34" selection-end-line="308" selection-end-column="34" />
+          <folding>
+            <marker date="1469111032546" expanded="true" signature="19660:19835" ph="..." />
+            <marker date="1469111032546" expanded="true" signature="19836:20834" ph="..." />
+            <marker date="1469111032546" expanded="false" signature="19852:19953" ph="..." />
+            <marker date="1469111032546" expanded="false" signature="19968:20016" ph="..." />
+            <marker date="1469111032546" expanded="false" signature="20079:20098" ph="..." />
+            <marker date="1469111032546" expanded="true" signature="20099:20825" ph="..." />
+            <marker date="1469111032546" expanded="false" signature="20400:20452" ph="..." />
+            <marker date="1469111032546" expanded="false" signature="20535:20548" ph="..." />
+            <marker date="1469111032546" expanded="false" signature="20726:20739" ph="..." />
+            <marker date="1469111032546" expanded="true" signature="23281:23310" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/search.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="67" column="13" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
