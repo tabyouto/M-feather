@@ -20,6 +20,8 @@
 
 				'comment_field' => '<p>' .'<label for="comment">' . __( '' ) . '</label>' .'<textarea id="comment" name="comment" cols="40" rows="8" aria-required="true"></textarea>' .'</p>',
 				'label_submit' => __( '提交评论' )
+
 	);
 	comment_form($comments_args);
+
 ?>

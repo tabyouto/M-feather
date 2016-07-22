@@ -118,7 +118,7 @@ function ajax_comment_callback(){
                         <em><?php _e('等待审核！' ); ?></em>
                     <?php endif; ?>
                 </cite>
-                <time class="comment-time"><?php printf(__('%1$s at %2$s'), get_comment_date(),get_comment_time()); ?></time>
+                <time class="comment-time"><?php printf(__('%1$s at %2$s'), get_comment_date(),get_comment_time('Y-m-d')); ?></time>
             </div>
 
             <div class="comment-meta comment-meta-data">

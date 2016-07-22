@@ -761,5 +761,21 @@ remove_action('admin_init', '_maybe_update_core');    // 禁止 WordPress 检查
 remove_action('admin_init', '_maybe_update_plugins'); // 禁止 WordPress 更新插件
 remove_action('admin_init', '_maybe_update_themes');  // 禁止 WordPress 更新主题
 
+
+/**
+ * 添加图片表情
+ */
+add_filter('smilies_src','custom_smilies_src',1,10);
+function custom_smilies_src ($img_src, $img, $siteurl){
+    return get_bloginfo('template_directory').'/images/smilies/'.$img;
+}
+
+function add_smile() {
+    include(TEMPLATEPATH . '/smiley.php');
+}
+add_filter('comment_form_before_fields',add_smile);
+
+
+
 ?>
 
