@@ -1,0 +1,26 @@
+@charset "UTF-8";
+.pagenavi {
+  margin: 20px 360px 46px 0;
+}
+.wp-pagenavi {
+  text-align: center;
+  font-size: 12px;
+}
+.wp-pagenavi a {
+  color: #515865;
+  padding: 2px 10px;
+  margin: 0 4px;
+}
+.wp-pagenavi .current {
+  cursor: default;
+  border: 1px solid #e2e2e2;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  background-color: #d6d6d6;
+  color: #ffffff;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  line-height: 25px;
+}

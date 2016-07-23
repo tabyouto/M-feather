@@ -28,7 +28,7 @@
                                     <?php the_excerpt();?>
                                 </div>
                                 <div class="block-post-meta">
-                                    <time><?php echo date('M',get_the_time('U')); the_date(' jS Y'); ?></time>
+                                    <time><?php echo date('M',get_the_time('U')).' '.get_the_time(' jS Y'); ?></time>
                                     <span class="middle-dot"></span>
                                     <?php if(function_exists('the_views')){ the_views();} ?> reads
                                 </div>
@@ -39,6 +39,9 @@
                         echo "<p>没有文章</p>";
                     endif;
                     ?>
+                </div>
+                <div class="layout-primary pagenavi">
+                    <?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?>
                 </div>
             </div>
             <div class="layout-second">
@@ -95,9 +98,4 @@
         </div>
     </section>
 
-	<section class="primary">
-		<div class="pagenavi">
-			<?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?>
-		</div>
-	</section>
 <?php get_footer(); ?>

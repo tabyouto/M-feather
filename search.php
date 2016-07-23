@@ -30,7 +30,7 @@
 										<?php the_excerpt();?>
 									</div>
 									<div class="block-post-meta">
-										<time><?php echo date('M',get_the_time('U')); the_date(' jS Y'); ?></time>
+										<time><?php echo date('M',get_the_time('U')).' '.get_the_time(' jS Y'); ?></time>
 										<span class="middle-dot"></span>
 										<?php if(function_exists('the_views')){ the_views();} ?> reads
 									</div>

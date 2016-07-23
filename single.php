@@ -5,7 +5,7 @@
         <header class="entry-header">
             <h2 class="entry-title"><?php the_title(); elegent_posted_on(); ?></h2>
             <div class="entry-meta">
-                <time><?php echo date('M',get_the_time('U')); the_date(' jS Y'); ?></time>
+                <time><?php echo date('M',get_the_time('U')).' '.get_the_time(' jS Y'); ?></time>
                 <span class="middle-dot"></span>
                 <span class="views"><?php if(function_exists('the_views')){ the_views();} ?> reads</span>
             </div>
