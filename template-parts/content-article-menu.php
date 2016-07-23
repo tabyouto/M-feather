@@ -2,7 +2,7 @@
 
 <header class="article-header">
 	<h1 class="logo">
-		<a href="http://tabyouto.com" title="front end web developer site"></a>
+		<a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>"></a>
 	</h1>
 	<div class="navto-search">
 		<a href=""><i class="iconfont">&#xe600;</i></a>
@@ -21,8 +21,5 @@
                 'items_wrap'=>'%3$s'
             )
         ); ?>
-<!--		<li class="current"><a href="">wordpress</a></li>-->
-<!--		<li><a href="">前端</a></li>-->
-<!--		<li><a href="">life</a></li>-->
 	</ul>
 </div>

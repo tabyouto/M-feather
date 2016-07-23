@@ -50,6 +50,12 @@
     }
   }
   .entry-content {
+    a {
+      color: #ff94b3;
+      &:hover {
+        color: #f32561;
+      }
+    }
     blockquote {
       border-left: 4px solid #000;
       margin: 0 0 20px 0;
@@ -74,10 +80,22 @@
     }
     p {
       color: rgba(0,0,0,.78);
-      line-height: 1.8;
+      line-height: 2;
       margin-bottom: 20px;
       img {
-        width: 100%;
+        width: auto;
+        margin: 0 auto;
+        height: auto;
+        display: block;
+      }
+    }
+    ul,
+    ol{
+      margin-left: 55px;
+      li {
+        margin: 20px 0;
+        color: rgba(0, 0, 0, 0.52);
+        font-size: 14px;
       }
     }
   }
@@ -183,6 +201,10 @@
     a {
       color: #e43737;
     }
+    img {
+      width: 30px;
+      height: 27px;
+    }
   }
   .comment-time {
     display: block;
@@ -208,7 +230,7 @@
       list-style: none;
     }
   }
-  img {
+  .avatar {
     float: left;
     border-radius: 50%;
     margin-right: 10px;
@@ -231,6 +253,7 @@
 }
 .comment-author {
   float: left;
+  min-width: 116px;
   line-height: 8px;
   margin-bottom: 10px;
   cursor: default;
@@ -317,6 +340,9 @@
     }
   }
   textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     max-width: 100%;
     width: 100%;
     height: 8em;
@@ -328,6 +354,7 @@
     &:hover {
       background-color: #f55;
       color: #fff;
+      border: 1px solid transparent;
     }
   }
   p {
@@ -337,5 +364,15 @@
 .comment-form-url {
   label {
     margin-right: 16px;
+  }
+}
+
+.smile-icon {
+  display: inline-block;
+  width: 33px;
+  height: 30px;
+  overflow: hidden;
+  img {
+    width: 100%;
   }
 }

@@ -397,7 +397,15 @@ html,
 body {
   height: 100%;
 }
-ul {
+#comments,
+.rights-wrap,
+.about-me,
+.entry-meta,
+.entry-title {
+  cursor: default;
+}
+ul,
+ol {
   margin: 0;
   padding: 0;
 }
@@ -720,6 +728,12 @@ footer.footer {
   font-size: 14px;
   color: rgba(0, 0, 0, 0.26);
 }
+.article-wrap .entry-content a {
+  color: #ff94b3;
+}
+.article-wrap .entry-content a:hover {
+  color: #f32561;
+}
 .article-wrap .entry-content blockquote {
   border-left: 4px solid #000;
   margin: 0 0 20px 0;
@@ -744,11 +758,24 @@ footer.footer {
 }
 .article-wrap .entry-content p {
   color: rgba(0, 0, 0, 0.78);
-  line-height: 1.8;
+  line-height: 2;
   margin-bottom: 20px;
 }
 .article-wrap .entry-content p img {
-  width: 100%;
+  width: auto;
+  margin: 0 auto;
+  height: auto;
+  display: block;
+}
+.article-wrap .entry-content ul,
+.article-wrap .entry-content ol {
+  margin-left: 55px;
+}
+.article-wrap .entry-content ul li,
+.article-wrap .entry-content ol li {
+  margin: 20px 0;
+  color: rgba(0, 0, 0, 0.52);
+  font-size: 14px;
 }
 .Article__meta i {
   vertical-align: middle;
@@ -845,6 +872,10 @@ footer.footer {
 .comment-wrap p a {
   color: #e43737;
 }
+.comment-wrap p img {
+  width: 30px;
+  height: 27px;
+}
 .comment-wrap .comment-time {
   display: block;
   font-size: 12px;
@@ -865,7 +896,7 @@ footer.footer {
 .comment-wrap ol li {
   list-style: none;
 }
-.comment-wrap img {
+.comment-wrap .avatar {
   float: left;
   border-radius: 50%;
   margin-right: 10px;
@@ -887,6 +918,7 @@ footer.footer {
 }
 .comment-author {
   float: left;
+  min-width: 116px;
   line-height: 8px;
   margin-bottom: 10px;
   cursor: default;
@@ -971,6 +1003,9 @@ footer.footer {
   border-color: #f55;
 }
 #commentform textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   max-width: 100%;
   width: 100%;
   height: 8em;
@@ -982,12 +1017,22 @@ footer.footer {
 #commentform input[name="submit"]:hover {
   background-color: #f55;
   color: #fff;
+  border: 1px solid transparent;
 }
 #commentform p {
   margin: 0;
 }
 .comment-form-url label {
   margin-right: 16px;
+}
+.smile-icon {
+  display: inline-block;
+  width: 33px;
+  height: 30px;
+  overflow: hidden;
+}
+.smile-icon img {
+  width: 100%;
 }
 .search-result {
   color: rgba(0, 0, 0, 0.65);

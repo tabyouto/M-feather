@@ -185,9 +185,9 @@
 
 	var myLazyLoad = new LazyLoad({
 		// example of options object -> see options section
-		// threshold: 500,
+		threshold: 0,
 		// elements_selector: "img",
-		// throttle: 30,
+		throttle: 1000
 		// data_src: "src",
 		// show_while_loading: true,
 		// callback_set: function() { /* ... */ }

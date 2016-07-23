@@ -19,7 +19,7 @@ add_filter( 'show_admin_bar', '__return_false' );
 add_filter ('the_content', 'lazyload');
 function lazyload($content) {
     if(!is_feed()||!is_robots) {
-        $content=preg_replace('/<img(.+)src=[\'"]([^\'"]+)[\'"](.*)>/i',"<img\$1data-original=\"\$2\" src=\"loading1.gif\"\$3>\n<noscript>\$0</noscript>",$content);
+        $content=preg_replace('/<img(.+)src=[\'"]([^\'"]+)[\'"](.*)>/i',"<img\$1data-original=\"\$2\" src=\"wp-content/themes/M-feather/images/loading.gif\"\$3>\n<noscript>\$0</noscript>",$content);
     }
     return $content;
 }
@@ -370,7 +370,7 @@ function custome_comments( $comment, $args ,$depth ) {
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<div id="comment-<?php comment_ID(); ?>" class="comment-body">
 			<div class="comment-author vcard">
-				<?php echo get_avatar($comment,$size='20'); ?>
+				<?php echo get_avatar($comment,$size='35'); ?>
 				<cite class="fn">
 					<?php printf(__('%s'),get_comment_author_link()); ?> <span class="say">说道：</span>
 					<?php if($comment->comment_approved=='0') : ?>
@@ -760,6 +760,25 @@ add_filter('pre_site_transient_update_themes',  create_function('$a', "return nu
 remove_action('admin_init', '_maybe_update_core');    // 禁止 WordPress 检查更新
 remove_action('admin_init', '_maybe_update_plugins'); // 禁止 WordPress 更新插件
 remove_action('admin_init', '_maybe_update_themes');  // 禁止 WordPress 更新主题
+
+
+/**
+ * 添加图片表情
+ */
+add_filter('smilies_src','custom_smilies_src',1,10);
+function custom_smilies_src ($img_src, $img, $siteurl){
+    return get_bloginfo('template_directory').'/images/smilies/'.$img;
+}
+
+/**
+ * 插入表情
+ */
+function add_smile() {
+    include(TEMPLATEPATH . '/smiley.php');
+}
+add_filter('comment_form_after_fields',add_smile);
+
+
 
 ?>
 
