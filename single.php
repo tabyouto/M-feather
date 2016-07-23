@@ -15,17 +15,32 @@
         </div>
     <?php endwhile; endif; ?>
     <div class="Article__meta">
-            <span>
-                <a href="#" class="js-rating">
+            <span class="post-like">
+                <a href="javascript:;" class="js-rating <?php if(isset($_COOKIE['specs_zan_'.$post->ID])) echo 'is-active';?>" data-action="ding" data-id="<?php the_ID(); ?>">
                     <i class="icon-heart"></i>
-                    <span class="js-count">0</span>
+                    <span class="js-count">
+                        <?php if( get_post_meta($post->ID,'specs_zan',true) ){
+                            echo get_post_meta($post->ID,'specs_zan',true);
+                        } else {
+                            echo '0';
+                        }?>
+                    </span>
                 </a>
             </span>
-        <span>
+            <span>
                 <a href="#respond">
                 <i class="icon-comments"></i>
                 <span><?php echo comment_count($post->ID); ?></span></a>
             </span>
+<!--            <div class="post-like">-->
+<!--                <a href="javascript:;" data-action="ding" data-id="--><?php //the_ID(); ?><!--" class="specsZan --><?php //if(isset($_COOKIE['specs_zan_'.$post->ID])) echo 'done';?><!--">喜欢 <span class="count">-->
+<!--            --><?php //if( get_post_meta($post->ID,'specs_zan',true) ){
+//                echo get_post_meta($post->ID,'specs_zan',true);
+//            } else {
+//                echo '0';
+//            }?><!--</span>-->
+<!--                </a>-->
+<!--            </div>-->
     </div>
 </section>
 <?php get_template_part( 'template-parts/content', 'about-me' ); ?>

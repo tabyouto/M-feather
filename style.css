@@ -789,6 +789,10 @@ footer.footer {
 }
 .Article__meta a {
   font-size: 12px;
+  color: #949494;
+}
+.Article__meta a:hover {
+  color: #f5e;
 }
 .icon-comments {
   display: inline-block;
@@ -803,6 +807,9 @@ footer.footer {
   height: 17px;
   background: url("images/icon-heart.svg") center center no-repeat;
   background-size: 19px 17px;
+}
+.js-rating.is-active .icon-heart {
+  background: url("images/icon-heart-fill-red.svg");
 }
 .similarity-wrap {
   margin: 40px auto 50px;
@@ -823,6 +830,7 @@ footer.footer {
 .similarity li {
   margin: 0 0px 10px 0px;
   width: 50%;
+  list-style: none;
   overflow: hidden;
 }
 .similarity li:nth-child(even) {
