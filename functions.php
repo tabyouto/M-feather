@@ -92,7 +92,14 @@ function comment_count($postid=0,$which=0) {
 
 
 
-
+function theme_gzip() {
+    if (strstr($_SERVER['REQUEST_URI'],'/js/tinymce'))
+        return false;
+    if((ini_get('zlib.output_compression')=='On'||ini_get('zlib.output_compression_level')<0)||ini_get('output_handler')=='ob_gzhandler')
+        return false;
+    if (extension_loaded('zlib')&&!ob_start('ob_gzhandler'))
+        ob_start();
+}
 
 
 
@@ -101,21 +108,21 @@ function comment_count($postid=0,$which=0) {
 /**
  * set cookie
  */
-function hacker_set_cookie( $post_id, $type = 'photoRating' ) {
-    $cookie = array();
-    if( isset( $_COOKIE["hacker"] ) ) {
-        $cookie = json_decode( stripslashes( $_COOKIE["hacker"] ) );
-
-        if( isset( $cookie->$type ) )
-            array_push( $cookie->$type, $post_id );
-        else
-            $cookie->$type = array( $post_id );
-    } else {
-        $cookie[$type] = array( $post_id );
-    }
-
-    setcookie( 'hacker', json_encode( $cookie ), time() + (5*365*24*60*60), COOKIEPATH, COOKIE_DOMAIN );
-}
+//function hacker_set_cookie( $post_id, $type = 'photoRating' ) {
+//    $cookie = array();
+//    if( isset( $_COOKIE["hacker"] ) ) {
+//        $cookie = json_decode( stripslashes( $_COOKIE["hacker"] ) );
+//
+//        if( isset( $cookie->$type ) )
+//            array_push( $cookie->$type, $post_id );
+//        else
+//            $cookie->$type = array( $post_id );
+//    } else {
+//        $cookie[$type] = array( $post_id );
+//    }
+//
+//    setcookie( 'hacker', json_encode( $cookie ), time() + (5*365*24*60*60), COOKIEPATH, COOKIE_DOMAIN );
+//}
 // add_action( 'init', 'hacker_set_cookie');
 
 /**
@@ -567,44 +574,44 @@ endif;
 /**
  * Rating a post
  */
-function hacker_rating_post_html() {
-	$post_id = get_the_ID();
-	$likes = get_post_meta( $post_id, '_likes', true );
-	$likes = absint( $likes );
-?>
-	<div class="rating-wrap">
-		<a href="#" class="js-rating" data-post="<?php echo $post_id; ?>"><span class="js-count"><?php echo $likes; ?></span></a>
-	</div>
+//function hacker_rating_post_html() {
+//	$post_id = get_the_ID();
+//	$likes = get_post_meta( $post_id, '_likes', true );
+//	$likes = absint( $likes );
+//?>
+<!--	<div class="rating-wrap">-->
+<!--		<a href="#" class="js-rating" data-post="--><?php //echo $post_id; ?><!--"><span class="js-count">--><?php //echo $likes; ?><!--</span></a>-->
+<!--	</div>-->
 <?php
-}
-
-function hacker_rating_post() {
-
-    $result = array(
-        'status' => 0,
-        'count' => 0
-    );
-
-    $post_id = isset($_POST['post_id']) ? absint( $_POST['post_id'] ): false;
-    $nonce = isset($_POST['nonce']) ? $_POST['nonce']: null;
-    if( !$post_id || !wp_verify_nonce( $nonce, 'rating_post_nonce' ) ) {
-    	$result['status'] = -1;
-    	wp_send_json( $result );
-    	return;
-    }
-
-	$old_likes = get_post_meta( $post_id, '_likes', true );
-	$new_likes = absint( $old_likes ) + 1;
-	$update = update_post_meta( $post_id, '_likes', $new_likes, false );
-	if( $update ) {
-		$result['status'] = 1;
-		$result['count'] = $new_likes;
-		hacker_set_cookie($post_id, 'postRating');
-		wp_send_json( $result );
-	}
-}
-add_action( 'wp_ajax_nopriv_ajax_rating_post', 'hacker_rating_post' );
-add_action( 'wp_ajax_ajax_rating_post', 'hacker_rating_post' );
+//}
+//
+//function hacker_rating_post() {
+//
+//    $result = array(
+//        'status' => 0,
+//        'count' => 0
+//    );
+//
+//    $post_id = isset($_POST['post_id']) ? absint( $_POST['post_id'] ): false;
+//    $nonce = isset($_POST['nonce']) ? $_POST['nonce']: null;
+//    if( !$post_id || !wp_verify_nonce( $nonce, 'rating_post_nonce' ) ) {
+//    	$result['status'] = -1;
+//    	wp_send_json( $result );
+//    	return;
+//    }
+//
+//	$old_likes = get_post_meta( $post_id, '_likes', true );
+//	$new_likes = absint( $old_likes ) + 1;
+//	$update = update_post_meta( $post_id, '_likes', $new_likes, false );
+//	if( $update ) {
+//		$result['status'] = 1;
+//		$result['count'] = $new_likes;
+//		hacker_set_cookie($post_id, 'postRating');
+//		wp_send_json( $result );
+//	}
+//}
+//add_action( 'wp_ajax_nopriv_ajax_rating_post', 'hacker_rating_post' );
+//add_action( 'wp_ajax_ajax_rating_post', 'hacker_rating_post' );
 
 
 /**

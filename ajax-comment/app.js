@@ -8,6 +8,7 @@ jQuery(document).ready(function(jQuery) {
     var re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/igm;
 	jQuery(document).on("submit", "#commentform", function() {
 	    var t = addComment;
+        console.log(email.val());
 	    if( author.val() && email.val() && comment.val()) {
 	        if(re.test(email.val())) {
                 jQuery.ajax({
@@ -59,7 +60,6 @@ jQuery(document).ready(function(jQuery) {
                 t.createButterbar('邮箱错啦！（･∀･)');
             }
         }else {
-
             t.createButterbar('是不是漏写了什么？（･∀･)');
         }
 		return false;

@@ -468,6 +468,9 @@ header.header ul li {
   text-align: center;
   margin-right: 20px;
 }
+header.header ul .current-menu-item a {
+  color: #000;
+}
 header.header ul a {
   display: inline-block;
   font-size: 14px;
@@ -723,6 +726,9 @@ footer.footer {
   margin: 0 0 10px 0;
   font-weight: normal;
   font-size: 26px;
+}
+.article-wrap .entry-header .entry-title .edit-link {
+  font-size: 12px;
 }
 .article-wrap .entry-header .entry-meta {
   font-size: 14px;

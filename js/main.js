@@ -209,17 +209,16 @@
                 um_id: id,
                 um_action: action
             };
-            $.post("wp-admin/admin-ajax.php", ajax_data,
+            $.post(ajaxcomment.ajax_url, ajax_data,
                 function(data) {
                     $(rateHolder).html(data);
                 });
             return false;
         }
     };
-    $(document).on("click", ".js-rating",
-        function() {
+    $(document).on("click", ".js-rating", function() {
             $(this).postLike();
-        });
+	});
 
 
 
