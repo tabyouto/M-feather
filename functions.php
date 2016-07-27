@@ -18,8 +18,9 @@ add_filter( 'show_admin_bar', '__return_false' );
  */
 add_filter ('the_content', 'lazyload');
 function lazyload($content) {
+    $url = get_theme_root_uri();
     if(!is_feed()||!is_robots) {
-        $content=preg_replace('/<img(.+)src=[\'"]([^\'"]+)[\'"](.*)>/i',"<img\$1data-original=\"\$2\" src=\"wp-content/themes/M-feather/images/loading.gif\"\$3>\n<noscript>\$0</noscript>",$content);
+        $content=preg_replace('/<img(.+)src=[\'"]([^\'"]+)[\'"](.*)>/i',"<img\$1data-original=\"\$2\" src=\"$url/M-feather/images/loading.gif\"\$3>\n<noscript>\$0</noscript>",$content);
     }
     return $content;
 }
@@ -570,50 +571,11 @@ function hacker_entry_footer() {
 }
 endif;
 
-
 /**
- * Rating a post
+ * 取消分类描述 html过滤
  */
-//function hacker_rating_post_html() {
-//	$post_id = get_the_ID();
-//	$likes = get_post_meta( $post_id, '_likes', true );
-//	$likes = absint( $likes );
-//?>
-<!--	<div class="rating-wrap">-->
-<!--		<a href="#" class="js-rating" data-post="--><?php //echo $post_id; ?><!--"><span class="js-count">--><?php //echo $likes; ?><!--</span></a>-->
-<!--	</div>-->
-<?php
-//}
-//
-//function hacker_rating_post() {
-//
-//    $result = array(
-//        'status' => 0,
-//        'count' => 0
-//    );
-//
-//    $post_id = isset($_POST['post_id']) ? absint( $_POST['post_id'] ): false;
-//    $nonce = isset($_POST['nonce']) ? $_POST['nonce']: null;
-//    if( !$post_id || !wp_verify_nonce( $nonce, 'rating_post_nonce' ) ) {
-//    	$result['status'] = -1;
-//    	wp_send_json( $result );
-//    	return;
-//    }
-//
-//	$old_likes = get_post_meta( $post_id, '_likes', true );
-//	$new_likes = absint( $old_likes ) + 1;
-//	$update = update_post_meta( $post_id, '_likes', $new_likes, false );
-//	if( $update ) {
-//		$result['status'] = 1;
-//		$result['count'] = $new_likes;
-//		hacker_set_cookie($post_id, 'postRating');
-//		wp_send_json( $result );
-//	}
-//}
-//add_action( 'wp_ajax_nopriv_ajax_rating_post', 'hacker_rating_post' );
-//add_action( 'wp_ajax_ajax_rating_post', 'hacker_rating_post' );
-
-
+remove_filter('pre_term_description', 'wp_filter_kses');
+//===========================================================
 /**
  * 添加编辑按钮
  */
@@ -640,7 +602,7 @@ function comment_add_at( $comment_text, $comment = '') {
   return $comment_text;
 }
 add_filter( 'comment_text' , 'comment_add_at', 20, 2);
-
+//=========================================================================
 
 
 function comment_mail_notify($comment_id) {
@@ -684,80 +646,9 @@ function comment_mail_notify($comment_id) {
          wp_mail( $to, $subject, $message, $headers );
      }
  }
+//======================================================================================
 
 
-
-
-	
-    	
-
-
-
-
-
-global $texonomy_slug;
-$texonomy_slug='category'; // texonomy slug
-add_action($texonomy_slug.'_add_form_fields','categoryimage');
-function categoryimage($taxonomy){ ?>
-    <div>
-    <label for="tag-image">分类图像</label>
-    <input type="text" name="tag-image" id="tag-image" value="" /><br /><span>请在此输入图像URL地址。</span>
-</div>
-<?php script_css(); }
-add_action($texonomy_slug.'_edit_form_fields','categoryimageedit');
-function categoryimageedit($taxonomy){ ?>
-<tr>
-    <th scope="row" valign="top"><label for="tag-image">图像</label></th>
-    <td><input type="text" name="tag-image" id="tag-image" value="<?php echo get_option('_category_image'.$taxonomy->term_id); ?>" /><br /><span>请在此输入图像URL地址。</span></td>
-</tr>
-<?php script_css(); }
-function script_css(){ ?>
-<link rel='stylesheet' id='thickbox-css'  href='<?php echo includes_url(); ?>js/thickbox/thickbox.css' type='text/css' media='all' />
-<script type="text/javascript">
-    jQuery(document).ready(function() {
-    var fileInput = '';
-    jQuery('#tag-image').live('click',
-    function() {
-        fileInput = jQuery('#tag-image');
-        tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
-        return false;
-    });
-        window.original_send_to_editor = window.send_to_editor;
-    window.send_to_editor = function(html) {
-        if (fileInput) {
-            fileurl = jQuery('img', html).attr('src');
-            if (!fileurl) {
-                fileurl = jQuery(html).attr('src');
-            }
-            jQuery(fileInput).val(fileurl);
-            tb_remove();
-        } else {
-            window.original_send_to_editor(html);
-        }
-    };
-    });
-</script>
-<?php }
-//edit_$taxonomy
-add_action('edit_term','categoryimagesave');
-add_action('create_term','categoryimagesave');
-function categoryimagesave($term_id){
-    if(isset($_POST['tag-image'])){
-        if(isset($_POST['tag-image']))
-            update_option('_category_image'.$term_id,$_POST['tag-image'] );
-    }
-}
-function print_image_function(){
-    $texonomy_slug='category';
-    $_terms = wp_get_post_terms(get_the_ID(),$texonomy_slug);
-    $_termsidlist=array();
-    $result = '';
-    foreach($_terms as $val){
-        $result .= '<div style="float:left; margin-right:2px;"><a href="'.get_term_link($val).'"><img height="22px" title="'.$val->name.'" alt="'.$val->name.'" src="'.get_option('_category_image'.$val->term_id).'" /></a></div>';
-    }
-    return $result;
-}
-add_shortcode('print-image','print_image_function');
 
 
 
@@ -786,7 +677,9 @@ function add_smile() {
 add_filter('comment_form_after_fields',add_smile);
 
 
-
+/**
+ * 点赞功能
+ */
 add_action('wp_ajax_nopriv_specs_zan', 'specs_zan');
 add_action('wp_ajax_specs_zan', 'specs_zan');
 function specs_zan(){
