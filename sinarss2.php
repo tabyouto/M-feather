@@ -60,12 +60,14 @@ if (!empty($tcon)) {
 				}
 			}
 			if ($chrkey){//做判断，如果$chrkey为真，则说明存在定义的特殊字符，则输出替换过的微博内容
-				echo strtr($tcon,$table_change);
+//				echo strtr($tcon,$table_change);
+                echo  mb_substr($tcon,0,12,"GBK");
 			}elseif(strpos($tcon,'&')){//如果没有定义的特殊字符，那就判断是否存在&，如果有，则替换特殊字符的&和;
-				echo strtr($tcon,'&;','()');
+//				echo strtr($tcon,'&;','()');
+                echo  mb_substr($tcon,0,12,"GBK");
 			}else{//如果以上都假，那就说明微博没有任何特殊字符，直接输出微博内容。
-				$str = mb_substr($tcon)
-				echo $tcon;
+//				echo $tcon;
+                echo  mb_substr($tcon,0,12,"GBK");
 			}
 			?></title>
 		<pubDate><?php echo Date('Y-m-j, g:i a'); ?></pubDate>

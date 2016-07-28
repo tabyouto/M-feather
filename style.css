@@ -578,7 +578,7 @@ header.header .container {
   height: 120px;
   margin: 6px 0 0 20px;
   width: 140px;
-  border: 1px solid rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.01);
   float: right;
 }
 .layout-primary .block-content {
@@ -670,6 +670,7 @@ header.header .container {
 .hot-article-thumb {
   display: inline-block;
   float: left;
+  margin-right: 10px;
 }
 .hot-article-item li {
   margin-bottom: 3px;

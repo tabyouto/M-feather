@@ -20,7 +20,7 @@ add_filter ('the_content', 'lazyload');
 function lazyload($content) {
     $url = get_theme_root_uri();
     if(!is_feed()||!is_robots) {
-        $content=preg_replace('/<img(.+)src=[\'"]([^\'"]+)[\'"](.*)>/i',"<img\$1data-original=\"\$2\" src=\"$url/M-feather/images/loading.gif\"\$3>\n<noscript>\$0</noscript>",$content);
+        $content=preg_replace('/<img(.+)src=[\'"]([^\'"]+)[\'"](.*)>/i',"<img\$1data-original=\"\$2\" src=\"$url/M-feather/images/loading.jpg\"\$3>\n<noscript>\$0</noscript>",$content);
     }
     return $content;
 }
@@ -93,38 +93,10 @@ function comment_count($postid=0,$which=0) {
 
 
 
-function theme_gzip() {
-    if (strstr($_SERVER['REQUEST_URI'],'/js/tinymce'))
-        return false;
-    if((ini_get('zlib.output_compression')=='On'||ini_get('zlib.output_compression_level')<0)||ini_get('output_handler')=='ob_gzhandler')
-        return false;
-    if (extension_loaded('zlib')&&!ob_start('ob_gzhandler'))
-        ob_start();
-}
 
 
 
 
-
-/**
- * set cookie
- */
-//function hacker_set_cookie( $post_id, $type = 'photoRating' ) {
-//    $cookie = array();
-//    if( isset( $_COOKIE["hacker"] ) ) {
-//        $cookie = json_decode( stripslashes( $_COOKIE["hacker"] ) );
-//
-//        if( isset( $cookie->$type ) )
-//            array_push( $cookie->$type, $post_id );
-//        else
-//            $cookie->$type = array( $post_id );
-//    } else {
-//        $cookie[$type] = array( $post_id );
-//    }
-//
-//    setcookie( 'hacker', json_encode( $cookie ), time() + (5*365*24*60*60), COOKIEPATH, COOKIE_DOMAIN );
-//}
-// add_action( 'init', 'hacker_set_cookie');
 
 /**
  * 加载样式
@@ -239,7 +211,7 @@ add_filter('excerpt_more', 'new_excerpt_more');
  * 获取热门文章 按评论数
  */
 function get_most_reply_post() {
-	$post_num = 8; // 设置调用条数 
+	$post_num = 5; // 设置调用条数
 	// $post->ID = $postID;
 	// $array = array($post->ID);
 	// 
@@ -258,17 +230,20 @@ function get_most_reply_post() {
 	$i = 1;
 	while( $query_posts->have_posts() ) { 
 		$query_posts->the_post();
-		$d_post = '<li> <b class="num num-'.$i.'">'.$i;
-		$d_post .= '</b> <span class="last-time">'.get_the_date('Y/m');
-		$d_post .= '</span> <a href="'.get_the_permalink();
-		$d_post .= '" rel="bookmark" title="'.get_the_title();
-		$d_post .= '" target="_blank">'.get_the_title();
-		$d_post .= '</a> </li>';
+		$d_post = '<li><div class="hot-article-thumb"><img width="74px" height="74px" data-original="'.catch_first_image().'" alt=""></div>';
+		$d_post .= '<div class="list-item-info">';
+		$d_post .= '<h4><a href="'.get_the_permalink().'">'.get_the_title().'</a></h4>';
+
+		$d_post .= '<p class="list-itemDescription">'.get_post(get_the_ID())->comment_count.' 則留言, '.get_post_meta(get_the_ID(),'specs_zan',true).' 個喜歡</p></div></li>';
 		$i++;
 		echo $d_post;
 	} 
 	wp_reset_query();
-	
+
+
+
+
+
 }
 
 
@@ -534,42 +509,6 @@ register_deactivation_hook( __FILE__, 'disable_embeds_flush_rewrite_rules' );
 
 
 
-if ( ! function_exists( 'hacker_entry_footer' ) ) :
-/**
- * Prints HTML with meta information for the categories, tags and comments.
- */
-function hacker_entry_footer() {
-	// Hide category and tag text for pages.
-?>
-	<div class="Article__meta pull-left">
-	<?php 
-		if( 'post' === get_post_type() ) {
-			echo get_the_tag_list('<span class="post-tags"><i class="icon-tags"></i>', '', '</span>');
-		} 
-	?>
-	</div>
-	<!-- END .pull-left -->
-	<div class="Article__meta pull-right">
-	<?php
-		$post_id = get_the_ID();
-		$likes = get_post_meta( $post_id, '_likes', true );
-		$likes = absint( $likes );
-		printf('<span><a href="#" class="js-rating" data-post="%1$s"><i class="icon-heart"></i><span class="js-count">%2$s</span></a></span>',
-			$post_id,
-			$likes
-		);
-		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span><i class="icon-comments"></i><span>';
-			comments_popup_link( esc_html__( 'No Comment', 'hacker' ), esc_html__( '1 Comment', 'hacker' ), esc_html__( '% Comments', 'hacker' ) );
-			echo '</span></span>';
-		}
-	?>
-	</div>
-	<!-- END .pull-right -->
-<?php
-	
-}
-endif;
 
 /**
  * 取消分类描述 html过滤
