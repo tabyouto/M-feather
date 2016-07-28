@@ -66,9 +66,7 @@
 		throttle: 1000,
 		// data_src: "src",
 		// show_while_loading: true,
-		callback_set: function(e) {
-			console.log(e);
-		}
+		callback_set: function() {}
 	});
 
 
@@ -96,6 +94,21 @@
     };
     $(document).on("click", ".js-rating", function() {
             $(this).postLike();
+	});
+
+
+	$(window).scroll(function() {
+		if ($(this).scrollTop()> 100) {
+			$('.back-to-top').fadeIn();
+		} else {
+			$('.back-to-top').fadeOut();
+		}
+	});
+
+/// Scroll back to top
+	$(".back-to-top").click(function() {
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+		return false;
 	});
 
 

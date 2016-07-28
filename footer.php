@@ -9,6 +9,11 @@
 			</div>
 		</div>
 	</footer>
+	<div class="back-to-top">
+        <a href="javascript:;">
+            <i class="iconfont">&#xe601;</i>
+        </a>
+    </div>
 	<?php wp_footer(); ?>
 </body>
 </html>

@@ -67,7 +67,7 @@
 				</div>
 			</div>
 		</section>
-		<div class="pagenavi">
-			<?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?>
-		</div>
+<!--		<div class="pagenavi">-->
+<!--			--><?php //if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?>
+<!--		</div>-->
 <?php get_footer(); ?>
