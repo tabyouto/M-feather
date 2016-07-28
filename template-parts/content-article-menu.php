@@ -4,9 +4,6 @@
 	<h1 class="logo">
 		<a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>"></a>
 	</h1>
-	<div class="navto-search">
-		<a href=""><i class="iconfont">&#xe600;</i></a>
-	</div>
 </header>
 <div class="article-nav container">
 	<ul>
