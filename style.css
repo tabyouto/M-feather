@@ -530,7 +530,7 @@ header.header .container {
   zoom: 1;
 }
 .fill-top {
-  margin-top: 105px;
+  height: 105px;
   overflow: hidden;
 }
 .to-show {
@@ -563,7 +563,7 @@ header.header .container {
   color: rgba(0, 0, 0, 0.63);
 }
 .main {
-  margin-bottom: 70px;
+  overflow: hidden;
 }
 .primary-wrap {
   float: left;
@@ -781,6 +781,7 @@ footer.footer {
   color: rgba(0, 0, 0, 0.78);
   line-height: 2;
   margin-bottom: 20px;
+  word-break: break-all;
 }
 .article-wrap .entry-content p img {
   width: auto;
@@ -1132,7 +1133,7 @@ input[type="search"] {
 }
 input[type="search"]:focus,
 input[type="search"]:active {
-  width: 200px;
+  width: 180px;
   outline: none;
 }
 input[type="search"]:focus + .Label::after,
@@ -1216,4 +1217,199 @@ input[type="search"]::-webkit-input-placeholder {
   -moz-border-radius: 50%;
   border-radius: 50%;
   line-height: 25px;
+}
+@media screen and (max-width: 1140px) {
+  header.header .container {
+    transition: all .5s ease;
+    left: 112px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .main {
+    transition: all .5s ease;
+    margin: 0 30px;
+  }
+  footer.footer {
+    transition: all .5s ease;
+    padding: 0 30px;
+  }
+}
+@media screen and (max-width: 850px) {
+  .layout-second {
+    transition: all .5s ease;
+    display: none;
+  }
+  .layout-primary {
+    transition: all .5s ease;
+    margin-right: 0;
+  }
+  .back-to-top {
+    right: 45px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .logo {
+    float: none;
+  }
+  .fill-top {
+    height: 170px;
+  }
+  header.header .container {
+    left: 0;
+    transition: all .5s ease;
+    line-height: 32px;
+    text-align: center;
+  }
+  .layout-primary .block-title {
+    line-height: 16px;
+  }
+  .layout-primary .block-title a {
+    font-size: 16px;
+  }
+  .layout-primary .block-content {
+    margin-right: 0;
+    font-size: 12px;
+  }
+  .layout-primary .block-post-meta {
+    font-size: 12px;
+  }
+  .layout-primary .article-thumbnails img {
+    width: 70px!important;
+    height: 60px!important;
+  }
+  .navto-search {
+    margin-right: 30px;
+  }
+  .article-wrap {
+    margin: 58px 20px 0;
+  }
+  .similarity-wrap {
+    margin: 20px 20px 50px;
+  }
+  .entry-content {
+    font-size: 14px;
+  }
+  .similarity li {
+    width: 100%;
+  }
+  .similarity li:nth-child(even) {
+    text-align: left;
+  }
+  #comment-wrap {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .logo {
+    float: none;
+  }
+  .fill-top {
+    height: 170px;
+  }
+  header.header .container {
+    left: 0;
+    transition: all .5s ease;
+    line-height: 32px;
+    text-align: center;
+  }
+  .layout-primary .block-title {
+    line-height: 16px;
+  }
+  .layout-primary .block-title a {
+    font-size: 16px;
+  }
+  .layout-primary .block-content {
+    margin-right: 0;
+    font-size: 12px;
+  }
+  .layout-primary .block-post-meta {
+    font-size: 12px;
+  }
+  .layout-primary .article-thumbnails img {
+    width: 70px!important;
+    height: 60px!important;
+  }
+  .navto-search {
+    margin-right: 30px;
+  }
+  .article-wrap {
+    margin: 58px 20px 0;
+  }
+  .similarity-wrap {
+    margin: 20px 20px 50px;
+  }
+  .entry-content {
+    font-size: 14px;
+  }
+  .similarity li {
+    width: 100%;
+  }
+  .similarity li:nth-child(even) {
+    text-align: left;
+  }
+  #comment-wrap {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+@media screen and (max-width: 414px) {
+  .logo {
+    float: none;
+  }
+  .fill-top {
+    height: 170px;
+  }
+  header.header .container {
+    left: 0;
+    transition: all .5s ease;
+    line-height: 32px;
+    text-align: center;
+  }
+  .layout-primary .block-title {
+    line-height: 16px;
+  }
+  .layout-primary .block-title a {
+    font-size: 16px;
+  }
+  .layout-primary .block-content {
+    margin-right: 0;
+    font-size: 12px;
+  }
+  .layout-primary .block-post-meta {
+    font-size: 12px;
+  }
+  .layout-primary .article-thumbnails img {
+    width: 70px!important;
+    height: 60px!important;
+  }
+  .navto-search {
+    margin-right: 30px;
+  }
+  .article-wrap {
+    margin: 58px 20px 0;
+  }
+  .similarity-wrap {
+    margin: 20px 20px 50px;
+  }
+  .entry-content {
+    font-size: 14px;
+  }
+  .similarity li {
+    width: 100%;
+  }
+  .similarity li:nth-child(even) {
+    text-align: left;
+  }
+  #comment-wrap {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .article-wrap,
+  .comment-wrap {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }

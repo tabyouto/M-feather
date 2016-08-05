@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 <?php get_template_part( 'template-parts/content', 'index-menu' ); ?>
-    <section class="container fill-top">
+    <div class="fill-top"></div>
+    <section class="container">
 <!--        --><?php //get_template_part( 'template-parts/content', 'time' ); ?>
         <div class="main container">
             <div class="primary-wrap">

@@ -51,3 +51,4 @@ $keywords = trim(strip_tags($keywords));
 	<?php wp_head(); ?>
 </head>
 <body>
+
