@@ -14,6 +14,9 @@
             <i class="iconfont">&#xe601;</i>
         </a>
     </div>
+	<?php
+	printf('This page loaded in %1$s seconds with %2$s database queries.', timer_stop(0,3), get_num_queries());
+	?>
 	<?php wp_footer(); ?>
 </body>
 </html>

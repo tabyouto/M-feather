@@ -250,29 +250,448 @@ function get_most_reply_post() {
 /**
  * widget注册
  */
-function Widgetinit() {
-	register_sidebar( array(
-		'name' => 'Sidebar',
-		'id'   => 'left_sidebar',
-		'before_widget' => '<div id="%1$s2" class="hot-articles %2$s">',
-        'after_widget'  =>  '</div></div>',
-        'after_widget'  => '',
-        'before_title'  => '<header class="sidebar-title">',
-        'after_title'   => '</header>'
-	));
+//function Widgetinit() {
+//	register_sidebar( array(
+//		'name' => 'Sidebar',
+//		'id'   => 'left_sidebar',
+//		'before_widget' => '<div id="%1$s2" class="hot-articles %2$s">',
+//        'after_widget'  =>  '</div></div>',
+//        'after_widget'  => '',
+//        'before_title'  => '<header class="sidebar-title">',
+//        'after_title'   => '</header>'
+//	));
+//
+//	register_sidebar( array(
+//		'name' => 'Footer Area',
+//		'id'   => 'footer1',
+//		'before_widget' => '',
+//        'after_widget'  =>  '',
+//        'after_widget'  => '',
+//        'before_title'  => '',
+//        'after_title'   => ''
+//	));
+//}
+//add_action('widgets_init','Widgetinit');
 
-	register_sidebar( array(
-		'name' => 'Footer Area',
-		'id'   => 'footer1',
-		'before_widget' => '',
-        'after_widget'  =>  '',
-        'after_widget'  => '',
-        'before_title'  => '',
-        'after_title'   => ''
-	));
+
+
+/*
+ Plugin Name: WP No Category Base
+ Plugin URI: http://blinger.org/wordpress-plugins/no-category-base/
+ Description: Removes '/category' from your category permalinks.
+ Version: 1.1.1
+ Author: iDope
+ Author URI: http://efextra.com/
+ */
+
+/*  Copyright 2008  Saurabh Gupta  (email : saurabh0@gmail.com)
+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ */
+
+// Refresh rules on activation/deactivation/category changes
+register_activation_hook(__FILE__, 'no_category_base_refresh_rules');
+add_action('created_category', 'no_category_base_refresh_rules');
+add_action('edited_category', 'no_category_base_refresh_rules');
+add_action('delete_category', 'no_category_base_refresh_rules');
+function no_category_base_refresh_rules() {
+    global $wp_rewrite;
+    $wp_rewrite -> flush_rules();
 }
-add_action('widgets_init','Widgetinit');
- 
+
+register_deactivation_hook(__FILE__, 'no_category_base_deactivate');
+function no_category_base_deactivate() {
+    remove_filter('category_rewrite_rules', 'no_category_base_rewrite_rules');
+    // We don't want to insert our custom rules again
+    no_category_base_refresh_rules();
+}
+
+// Remove category base
+add_action('init', 'no_category_base_permastruct');
+function no_category_base_permastruct() {
+    global $wp_rewrite, $wp_version;
+    if (version_compare($wp_version, '3.4', '<')) {
+        // For pre-3.4 support
+        $wp_rewrite -> extra_permastructs['category'][0] = '%category%';
+    } else {
+        $wp_rewrite -> extra_permastructs['category']['struct'] = '%category%';
+    }
+}
+
+// Add our custom category rewrite rules
+add_filter('category_rewrite_rules', 'no_category_base_rewrite_rules');
+function no_category_base_rewrite_rules($category_rewrite) {
+    //var_dump($category_rewrite); // For Debugging
+
+    $category_rewrite = array();
+    $categories = get_categories(array('hide_empty' => false));
+    foreach ($categories as $category) {
+        $category_nicename = $category -> slug;
+        if ($category -> parent == $category -> cat_ID)// recursive recursion
+            $category -> parent = 0;
+        elseif ($category -> parent != 0)
+            $category_nicename = get_category_parents($category -> parent, false, '/', true) . $category_nicename;
+        $category_rewrite['(' . $category_nicename . ')/(?:feed/)?(feed|rdf|rss|rss2|atom)/?$'] = 'index.php?category_name=$matches[1]&feed=$matches[2]';
+        $category_rewrite['(' . $category_nicename . ')/page/?([0-9]{1,})/?$'] = 'index.php?category_name=$matches[1]&paged=$matches[2]';
+        $category_rewrite['(' . $category_nicename . ')/?$'] = 'index.php?category_name=$matches[1]';
+    }
+    // Redirect support from Old Category Base
+    global $wp_rewrite;
+    $old_category_base = get_option('category_base') ? get_option('category_base') : 'category';
+    $old_category_base = trim($old_category_base, '/');
+    $category_rewrite[$old_category_base . '/(.*)$'] = 'index.php?category_redirect=$matches[1]';
+
+    //var_dump($category_rewrite); // For Debugging
+    return $category_rewrite;
+}
+
+// For Debugging
+//add_filter('rewrite_rules_array', 'no_category_base_rewrite_rules_array');
+//function no_category_base_rewrite_rules_array($category_rewrite) {
+//	var_dump($category_rewrite); // For Debugging
+//}
+
+// Add 'category_redirect' query variable
+add_filter('query_vars', 'no_category_base_query_vars');
+function no_category_base_query_vars($public_query_vars) {
+    $public_query_vars[] = 'category_redirect';
+    return $public_query_vars;
+}
+
+// Redirect if 'category_redirect' is set
+add_filter('request', 'no_category_base_request');
+function no_category_base_request($query_vars) {
+    //print_r($query_vars); // For Debugging
+    if (isset($query_vars['category_redirect'])) {
+        $catlink = trailingslashit(get_option('home')) . user_trailingslashit($query_vars['category_redirect'], 'category');
+        status_header(301);
+        header("Location: $catlink");
+        exit();
+    }
+    return $query_vars;
+}
+
+
+
+
+/**
+ * The Disable Google Fonts Plugin
+ *
+ * Disable enqueuing of Open Sans and other fonts used by WordPress from Google.
+ *
+ * @package Disable_Google_Fonts
+ * @subpackage Main
+ */
+
+/**
+ * Plugin Name: Disable Google Fonts
+ * Plugin URI:  http://blog.milandinic.com/wordpress/plugins/disable-google-fonts/
+ * Description: Disable enqueuing of Open Sans and other fonts used by WordPress from Google.
+ * Author:      Milan Dinić
+ * Author URI:  http://blog.milandinic.com/
+ * Version:     1.2
+ * Text Domain: disable-google-fonts
+ * Domain Path: /languages/
+ * License:     GPL
+ */
+
+/* Exit if accessed directly */
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+class Disable_Google_Fonts {
+    /**
+     * Hook actions and filters.
+     *
+     * @since 1.0
+     * @access public
+     */
+    public function __construct() {
+        add_filter( 'gettext_with_context', array( $this, 'disable_open_sans'             ), 888, 4 );
+        add_action( 'after_setup_theme',    array( $this, 'register_theme_fonts_disabler' ), 1      );
+
+        // Register plugins action links filter
+        add_filter( 'plugin_action_links',               array( $this, 'action_links' ), 10, 2 );
+        add_filter( 'network_admin_plugin_action_links', array( $this, 'action_links' ), 10, 2 );
+    }
+
+    /**
+     * Add action links to plugins page.
+     *
+     * @since 1.2
+     * @access public
+     *
+     * @param array  $links       Existing plugin's action links.
+     * @param string $plugin_file Path to the plugin file.
+     * @return array $links New plugin's action links.
+     */
+    public function action_links( $links, $plugin_file ) {
+        // Set basename
+        $basename = plugin_basename( __FILE__ );
+
+        // Check if it is for this plugin
+        if ( $basename != $plugin_file ) {
+            return $links;
+        }
+
+        // Load translations
+        load_plugin_textdomain( 'disable-google-fonts', false, dirname( $basename ) . '/languages' );
+    }
+
+    /**
+     * Force 'off' as a result of Open Sans font toggler string translation.
+     *
+     * @since 1.0
+     * @access public
+     *
+     * @param  string $translations Translated text.
+     * @param  string $text         Text to translate.
+     * @param  string $context      Context information for the translators.
+     * @param  string $domain       Text domain. Unique identifier for retrieving translated strings.
+     * @return string $translations Translated text.
+     */
+    public function disable_open_sans( $translations, $text, $context, $domain ) {
+        if ( 'Open Sans font: on or off' == $context && 'on' == $text ) {
+            $translations = 'off';
+        }
+
+        return $translations;
+    }
+
+    /**
+     * Force 'off' as a result of Lato font toggler string translation.
+     *
+     * @since 1.0
+     * @access public
+     *
+     * @param  string $translations Translated text.
+     * @param  string $text         Text to translate.
+     * @param  string $context      Context information for the translators.
+     * @param  string $domain       Text domain. Unique identifier for retrieving translated strings.
+     * @return string $translations Translated text.
+     */
+    public function disable_lato( $translations, $text, $context, $domain ) {
+        if ( 'Lato font: on or off' == $context && 'on' == $text ) {
+            $translations = 'off';
+        }
+
+        return $translations;
+    }
+
+    /**
+     * Force 'off' as a result of Source Sans Pro font toggler string translation.
+     *
+     * @since 1.0
+     * @access public
+     *
+     * @param  string $translations Translated text.
+     * @param  string $text         Text to translate.
+     * @param  string $context      Context information for the translators.
+     * @param  string $domain       Text domain. Unique identifier for retrieving translated strings.
+     * @return string $translations Translated text.
+     */
+    public function disable_source_sans_pro( $translations, $text, $context, $domain ) {
+        if ( 'Source Sans Pro font: on or off' == $context && 'on' == $text ) {
+            $translations = 'off';
+        }
+
+        return $translations;
+    }
+
+    /**
+     * Force 'off' as a result of Bitter font toggler string translation.
+     *
+     * @since 1.0
+     * @access public
+     *
+     * @param  string $translations Translated text.
+     * @param  string $text         Text to translate.
+     * @param  string $context      Context information for the translators.
+     * @param  string $domain       Text domain. Unique identifier for retrieving translated strings.
+     * @return string $translations Translated text.
+     */
+    public function disable_bitter( $translations, $text, $context, $domain ) {
+        if ( 'Bitter font: on or off' == $context && 'on' == $text ) {
+            $translations = 'off';
+        }
+
+        return $translations;
+    }
+
+    /**
+     * Force 'off' as a result of Noto Sans font toggler string translation.
+     *
+     * @since 1.1
+     * @access public
+     *
+     * @param  string $translations Translated text.
+     * @param  string $text         Text to translate.
+     * @param  string $context      Context information for the translators.
+     * @param  string $domain       Text domain. Unique identifier for retrieving translated strings.
+     * @return string $translations Translated text.
+     */
+    public function disable_noto_sans( $translations, $text, $context, $domain ) {
+        if ( 'Noto Sans font: on or off' == $context && 'on' == $text ) {
+            $translations = 'off';
+        }
+
+        return $translations;
+    }
+
+    /**
+     * Force 'off' as a result of Noto Serif font toggler string translation.
+     *
+     * @since 1.1
+     * @access public
+     *
+     * @param  string $translations Translated text.
+     * @param  string $text         Text to translate.
+     * @param  string $context      Context information for the translators.
+     * @param  string $domain       Text domain. Unique identifier for retrieving translated strings.
+     * @return string $translations Translated text.
+     */
+    public function disable_noto_serif( $translations, $text, $context, $domain ) {
+        if ( 'Noto Serif font: on or off' == $context && 'on' == $text ) {
+            $translations = 'off';
+        }
+
+        return $translations;
+    }
+
+    /**
+     * Force 'off' as a result of Inconsolata font toggler string translation.
+     *
+     * @since 1.1
+     * @access public
+     *
+     * @param  string $translations Translated text.
+     * @param  string $text         Text to translate.
+     * @param  string $context      Context information for the translators.
+     * @param  string $domain       Text domain. Unique identifier for retrieving translated strings.
+     * @return string $translations Translated text.
+     */
+    public function disable_inconsolata( $translations, $text, $context, $domain ) {
+        if ( 'Inconsolata font: on or off' == $context && 'on' == $text ) {
+            $translations = 'off';
+        }
+
+        return $translations;
+    }
+
+    /**
+     * Force 'off' as a result of Merriweather font toggler string translation.
+     *
+     * @since 1.2
+     * @access public
+     *
+     * @param  string $translations Translated text.
+     * @param  string $text         Text to translate.
+     * @param  string $context      Context information for the translators.
+     * @param  string $domain       Text domain. Unique identifier for retrieving translated strings.
+     * @return string $translations Translated text.
+     */
+    public function disable_merriweather( $translations, $text, $context, $domain ) {
+        if ( 'Merriweather font: on or off' == $context && 'on' == $text ) {
+            $translations = 'off';
+        }
+
+        return $translations;
+    }
+
+    /**
+     * Force 'off' as a result of Montserrat font toggler string translation.
+     *
+     * @since 1.2
+     * @access public
+     *
+     * @param  string $translations Translated text.
+     * @param  string $text         Text to translate.
+     * @param  string $context      Context information for the translators.
+     * @param  string $domain       Text domain. Unique identifier for retrieving translated strings.
+     * @return string $translations Translated text.
+     */
+    public function disable_montserrat( $translations, $text, $context, $domain ) {
+        if ( 'Montserrat font: on or off' == $context && 'on' == $text ) {
+            $translations = 'off';
+        }
+
+        return $translations;
+    }
+
+    /**
+     * Register filters that disable fonts for bundled themes.
+     *
+     * This filters can be directly hooked as Disable_Google_Fonts::disable_open_sans()
+     * but that would mean that comparison is done on each string
+     * for each font which creates performance issues.
+     *
+     * Instead we check active template's name very late and just once
+     * and hook appropriate filters.
+     *
+     * Note that Open Sans disabler is used for both WordPress core
+     * and for Twenty Twelve theme.
+     *
+     * @since 1.0
+     * @access public
+     *
+     * @uses get_template() To get name of the active parent theme.
+     * @uses add_filter()   To hook theme specific fonts disablers.
+     */
+    public function register_theme_fonts_disabler() {
+        $template = get_template();
+
+        switch ( $template ) {
+            case 'twentysixteen' :
+                add_filter( 'gettext_with_context', array( $this, 'disable_merriweather'    ), 888, 4 );
+                add_filter( 'gettext_with_context', array( $this, 'disable_montserrat'      ), 888, 4 );
+                add_filter( 'gettext_with_context', array( $this, 'disable_inconsolata'     ), 888, 4 );
+                break;
+            case 'twentyfifteen' :
+                add_filter( 'gettext_with_context', array( $this, 'disable_noto_sans'       ), 888, 4 );
+                add_filter( 'gettext_with_context', array( $this, 'disable_noto_serif'      ), 888, 4 );
+                add_filter( 'gettext_with_context', array( $this, 'disable_inconsolata'     ), 888, 4 );
+                break;
+            case 'twentyfourteen' :
+                add_filter( 'gettext_with_context', array( $this, 'disable_lato'            ), 888, 4 );
+                break;
+            case 'twentythirteen' :
+                add_filter( 'gettext_with_context', array( $this, 'disable_source_sans_pro' ), 888, 4 );
+                add_filter( 'gettext_with_context', array( $this, 'disable_bitter'          ), 888, 4 );
+                break;
+        }
+    }
+}
+
+/* Although it would be preferred to do this on hook,
+ * load early to make sure Open Sans is removed
+ */
+$disable_google_fonts = new Disable_Google_Fonts;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
