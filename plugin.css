@@ -1,0 +1,7 @@
+@charset "UTF-8";
+pre.prettyprint {
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  font-weight: 100;
+  font-size: 14px;
+  border-radius: 4px;
+}
