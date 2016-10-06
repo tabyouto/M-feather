@@ -63,7 +63,7 @@ add_filter('get_avatar', 'get_ssl_avatar');
 add_action('wp_enqueue_scripts', 'no_more_jquery');
 function no_more_jquery(){
     wp_deregister_script('jquery');
-    wp_register_script('jquery', "http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js", false, null);
+    wp_register_script('jquery', get_template_directory_uri()."/js/jquery.min.js", false, null);
     wp_enqueue_script('jquery');
 }
 

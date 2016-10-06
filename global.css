@@ -1,0 +1,116 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_1469688080_692384.eot');
+  src: url('//at.alicdn.com/t/font_1469688080_692384.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('//at.alicdn.com/t/font_1469688080_692384.woff') format('woff'), /* chrome、firefox */ url('//at.alicdn.com/t/font_1469688080_692384.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('//at.alicdn.com/t/font_1469688080_692384.svg#iconfont') format('svg');
+  
+  /* IE9*/
+  /* iOS 4.1- */
+}
+html,
+body {
+  height: 100%;
+}
+input,
+textarea {
+  outline: none;
+}
+.iconfont {
+  font-family: "iconfont";
+  font-size: 16px;
+  font-style: normal;
+}
+/**
+ * 清除浮动
+ */
+.clearfix:before,
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
+#comments,
+.rights-wrap,
+.about-me,
+.entry-meta,
+.entry-title {
+  cursor: default;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+html {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", STHeiti, "WenQuanYi Micro Hei", Helvetica, Arial, sans-serif;
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.primary,
+.fill-all {
+  min-height: 100%;
+  height: auto;
+  position: relative;
+}
+.tj {
+  display: none;
+}
+.aligncenter {
+  margin: 0 auto;
+}
+::-moz-selection {
+  color: #fff;
+  background-color: #f79292;
+}
+::selection {
+  color: #fff;
+  background-color: #f79292;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece {
+  background: -webkit-gradient(linear, left top, right top, from(#f6f6f6), color-stop(50%, #ffffff), color-stop(75%, #ffffff), to(#fdfdfd));
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece {
+  background: -webkit-gradient(linear, left top, right top, from(#f6f6f6), color-stop(50%, #ffffff), color-stop(75%, #ffffff), to(#fdfdfd));
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-thumb {
+  border-width: 0;
+  border-style: solid;
+  border-radius: 6px;
+  background: #d9d9d9;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 14px;
+}
+.back-to-top {
+  position: fixed;
+  right: 145px;
+  bottom: 31px;
+}
+.back-to-top a {
+  color: #ddd;
+}
+.back-to-top a:hover {
+  color: rgba(4, 4, 4, 0.49);
+}
+.back-to-top a i {
+  font-size: 32px;
+}

@@ -3,7 +3,7 @@
 			<div class="rights-wrap">
 				<?php
 				printf( esc_html__( '&#169;2012-2016 All rights reserved %s', 'tabyouto' ),
-					'<a href="'. esc_url('http://tabyouto.com/') .'" target="_blank">Tabyouto</a>'
+					'<a href="'. esc_url('//tabyouto.com/') .'" target="_blank">Tabyouto</a>'
 				);
 				?>
 			</div>
@@ -14,9 +14,9 @@
             <i class="iconfont">&#xe601;</i>
         </a>
     </div>
-	<?php
-	printf('This page loaded in %1$s seconds with %2$s database queries.', timer_stop(0,3), get_num_queries());
-	?>
+    <div class="tj">
+		<script src="https://s19.cnzz.com/z_stat.php?id=3785229&web_id=3785229" language="JavaScript"></script>
+    </div>
 	<?php wp_footer(); ?>
 </body>
 </html>

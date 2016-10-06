@@ -45,7 +45,7 @@ $keywords = trim(strip_tags($keywords));
 	<meta name="description" content="<?php echo $description; ?>" />
 	<meta name="keywords" content="<?php echo $keywords; ?>" />
 	<link rel="shortcut icon" href="<?php echo bloginfo('template_directory'); ?>/favicon.ico">
-	<!--[if IE ]><script src="http://apps.bdimg.com/libs/html5shiv/r29/html5.min.js"></script><![endif]-->
+	<!--[if IE ]><script src="//apps.bdimg.com/libs/html5shiv/r29/html5.min.js"></script><![endif]-->
 	<title><?php bloginfo('name'); //echo of_get_option('connector','-'); 
 	bloginfo('description'); ?></title>
 	<?php wp_head(); ?>

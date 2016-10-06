@@ -1,9 +1,8 @@
 <?php get_header(); ?>
 	<section class="primary">
 		<?php get_template_part( 'template-parts/content', 'index-menu' ); ?>
-
-
-		<section class="container fill-top">
+		<div class="fill-top"></div>
+		<section class="container fill-all">
 			<div class="main container">
 				<div class="primary-wrap">
 					<div class="layout-primary">
@@ -44,53 +43,11 @@
 					</div>
 				</div>
 				<div class="layout-second">
-					<div class="widget">
-						<h3 class="heading-title">我的随语</h3>
-						<ul class="weibo-item">
-							<li><i class="weibo-icon"></i>想买鞋子，但是箱子装不下了。<span class="middle-dot"></span><span class="weibo-time">发布于19 hours前</span></li>
-							<li><i class="weibo-icon"></i>想买鞋子，但是箱子装不下了。<span class="middle-dot"></span><span class="weibo-time">发布于19 hours前</span></li>
-							<li><i class="weibo-icon"></i>想买鞋子，但是箱子装不下了。<span class="middle-dot"></span><span class="weibo-time">发布于19 hours前</span></li>
-							<li><i class="weibo-icon"></i>想买鞋子，但是箱子装不下了。<span class="middle-dot"></span><span class="weibo-time">发布于19 hours前</span></li>
-						</ul>
-					</div>
+                    <?php //get_template_part( 'template-parts/widget', 'weibo' ); ?>
 					<div class="widget">
 						<h3 class="heading-title">热门文章</h3>
 						<ul class="hot-article-item">
-							<li>
-								<div class="hot-article-thumb"><img src="https://static.fatesinger.com/2016/03/mp1vwq4unxkcz89e.jpg!avatar" alt=""></div>
-								<div class="list-item-info">
-									<h4><a href="https://fatesinger.com/74369">WordPress 插件网易云音乐</a></h4>
-									<p class="list-itemDescription">264 則留言, 23 個喜歡</p>
-								</div>
-							</li>
-							<li>
-								<div class="hot-article-thumb"><img src="https://static.fatesinger.com/2016/03/mp1vwq4unxkcz89e.jpg!avatar" alt=""></div>
-								<div class="list-item-info">
-									<h4><a href="https://fatesinger.com/74369">WordPress 插件网易云音乐</a></h4>
-									<p class="list-itemDescription">264 則留言, 23 個喜歡</p>
-								</div>
-							</li>
-							<li>
-								<div class="hot-article-thumb"><img src="https://static.fatesinger.com/2016/03/mp1vwq4unxkcz89e.jpg!avatar" alt=""></div>
-								<div class="list-item-info">
-									<h4><a href="https://fatesinger.com/74369">WordPress 插件网易云音乐</a></h4>
-									<p class="list-itemDescription">264 則留言, 23 個喜歡</p>
-								</div>
-							</li>
-							<li>
-								<div class="hot-article-thumb"><img src="https://static.fatesinger.com/2016/03/mp1vwq4unxkcz89e.jpg!avatar" alt=""></div>
-								<div class="list-item-info">
-									<h4><a href="https://fatesinger.com/74369">WordPress 插件网易云音乐</a></h4>
-									<p class="list-itemDescription">264 則留言, 23 個喜歡</p>
-								</div>
-							</li>
-							<li>
-								<div class="hot-article-thumb"><img src="https://static.fatesinger.com/2016/03/mp1vwq4unxkcz89e.jpg!avatar" alt=""></div>
-								<div class="list-item-info">
-									<h4><a href="https://fatesinger.com/74369">WordPress 插件网易云音乐</a></h4>
-									<p class="list-itemDescription">264 則留言, 23 個喜歡</p>
-								</div>
-							</li>
+							<?php echo get_most_reply_post(); ?>
 						</ul>
 					</div>
 				</div>

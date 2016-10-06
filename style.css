@@ -368,6 +368,10 @@ th {
   /* IE9*/
   /* iOS 4.1- */
 }
+html,
+body {
+  height: 100%;
+}
 input,
 textarea {
   outline: none;
@@ -393,10 +397,6 @@ textarea {
 .clearfix {
   zoom: 1;
 }
-html,
-body {
-  height: 100%;
-}
 #comments,
 .rights-wrap,
 .about-me,
@@ -417,6 +417,18 @@ html {
 }
 .container {
   max-width: 1000px;
+  margin: 0 auto;
+}
+.primary,
+.fill-all {
+  min-height: 100%;
+  height: auto;
+  position: relative;
+}
+.tj {
+  display: none;
+}
+.aligncenter {
   margin: 0 auto;
 }
 ::-moz-selection {
