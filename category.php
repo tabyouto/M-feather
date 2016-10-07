@@ -13,7 +13,10 @@
 					<div class="primary-wrap">
 						<div class="layout-primary">
 							<?php
-							if (have_posts()):query_posts('showposts=10');
+							$cat = get_the_category();
+							$cat_id = $cat[0]->cat_ID;
+//							query_posts('order=date&cat=' . $cat_id );
+							if (have_posts()):query_posts('showposts=10&cat=' . $cat_id);
 								while (have_posts()) : the_post(); ?>
 									<article class="layout-primary-list">
 										<?php if(catch_first_image()!==""): ?>
