@@ -1,2 +1,2 @@
 # M-feather WordPress Theme
-<a href="http://tabyouto.com">tabyouto.com</a>
+<a href="https://noxxxx.com">noxxxx.com</a>
